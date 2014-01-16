@@ -54,10 +54,10 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=Presupuesto1',
+			'connectionString' => 'mysql:host=localhost;dbname=silver',
 			'emulatePrepare' => true,
-			'username' => 'presupuesto',
-			'password' => 'qwerty',
+			'username' => 'silver',
+			'password' => 'qwerTy',
 			'charset' => 'latin1',
 		),
 		

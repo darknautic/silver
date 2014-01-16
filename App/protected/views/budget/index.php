@@ -1,18 +1,18 @@
 <?php
-/* @var $this GreetsController */
+/* @var $this BudgetController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Greets',
+	'Budgets',
 );
 
 $this->menu=array(
-	array('label'=>'Create Greets', 'url'=>array('create')),
-	array('label'=>'Manage Greets', 'url'=>array('admin')),
+	array('label'=>'Create Budget', 'url'=>array('create')),
+	array('label'=>'Manage Budget', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Greets</h1>
+<h1>Budgets</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

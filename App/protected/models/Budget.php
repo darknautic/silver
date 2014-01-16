@@ -1,21 +1,27 @@
 <?php
 
 /**
- * This is the model class for table "greets".
+ * This is the model class for table "budget".
  *
- * The followings are the available columns in table 'greets':
- * @property string $greetFrom
- * @property string $greetTo
- * @property string $greetText
+ * The followings are the available columns in table 'budget':
+ * @property string $id
+ * @property string $amount
+ * @property string $description
+ * @property string $periodFrom
+ * @property string $periodTo
+ * @property string $type
+ * @property string $status
+ * @property string $creationTime
+ * @property integer $creationUser
  */
-class Greets extends CActiveRecord
+class Budget extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'greets';
+		return 'budget';
 	}
 
 	/**
@@ -26,11 +32,15 @@ class Greets extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('greetFrom, greetTo, greetText', 'required'),
-			array('greetFrom, greetTo, greetText', 'length', 'max'=>20),
+			array('amount, periodFrom, periodTo, type, status, creationTime, creationUser', 'required'),
+			array('creationUser', 'numerical', 'integerOnly'=>true),
+			array('amount', 'length', 'max'=>28),
+			array('description', 'length', 'max'=>300),
+			array('type', 'length', 'max'=>50),
+			array('status', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('greetFrom, greetTo, greetText', 'safe', 'on'=>'search'),
+			array('id, amount, description, periodFrom, periodTo, type, status, creationTime, creationUser', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,9 +61,15 @@ class Greets extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'greetFrom' => 'Greet From',
-			'greetTo' => 'Greet To',
-			'greetText' => 'Greet Text',
+			'id' => 'ID',
+			'amount' => 'Amount',
+			'description' => 'Description',
+			'periodFrom' => 'Period From',
+			'periodTo' => 'Period To',
+			'type' => 'Type',
+			'status' => 'Status',
+			'creationTime' => 'Creation Time',
+			'creationUser' => 'Creation User',
 		);
 	}
 
@@ -75,9 +91,15 @@ class Greets extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('greetFrom',$this->greetFrom,true);
-		$criteria->compare('greetTo',$this->greetTo,true);
-		$criteria->compare('greetText',$this->greetText,true);
+		$criteria->compare('id',$this->id,true);
+		$criteria->compare('amount',$this->amount,true);
+		$criteria->compare('description',$this->description,true);
+		$criteria->compare('periodFrom',$this->periodFrom,true);
+		$criteria->compare('periodTo',$this->periodTo,true);
+		$criteria->compare('type',$this->type,true);
+		$criteria->compare('status',$this->status,true);
+		$criteria->compare('creationTime',$this->creationTime,true);
+		$criteria->compare('creationUser',$this->creationUser);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -88,7 +110,7 @@ class Greets extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Greets the static model class
+	 * @return Budget the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
