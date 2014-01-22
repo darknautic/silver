@@ -63,3 +63,11 @@ Stack trace:
 #8 /var/www/html/silver/App/index.php(13): CWebApplication->run()
 REQUEST_URI=/html/silver/App/index.php?r=gii/crud/index
 in /var/www/html/silver/App/index.php (13)
+2014/01/18 23:57:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "newForm".' in /var/www/html/silver/yii-1.1/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/silver/yii-1.1/framework/web/CWebApplication.php(141): CWebApplication->runController('newForm')
+#1 /var/www/html/silver/yii-1.1/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/silver/App/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/html/silver/App/index.php?r=newForm
+---
