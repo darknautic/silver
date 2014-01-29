@@ -33,4 +33,17 @@ class AssignmentController extends Controller
 		);
 	}
 	*/
+	
+	
+	 public function actionOption1()
+		{		
+		  $this->render('option1');
+		}
+
+	
+	
+	 public function actionOption2()
+		{		
+		  $this->render('option2');
+		}
 }
